@@ -2,8 +2,14 @@
 import { createClient } from '@supabase/supabase-js';
 import type { Database } from './types';
 
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
-const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+// Fallback to hardcoded values if env vars are not available (e.g. Cloudflare Pages build)
+const SUPABASE_URL =
+  import.meta.env.VITE_SUPABASE_URL ||
+  'https://ezinpkzlpszzztkcozud.supabase.co';
+
+const SUPABASE_PUBLISHABLE_KEY =
+  import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY ||
+  'sb_publishable_Xhp2s62tWwhC6M49p6w_aw_2X2362iI';
 
 // Import the supabase client like this:
 // import { supabase } from "@/integrations/supabase/client";
