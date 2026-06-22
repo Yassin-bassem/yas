@@ -2,18 +2,9 @@
 import { createClient } from '@supabase/supabase-js';
 import type { Database } from './types';
 
-// Fallback to hardcoded values if env vars are not available (e.g. Cloudflare Pages build)
-const rawUrl =
-  import.meta.env.VITE_SUPABASE_URL ||
-  'https://ezinpkzlpszzztkcozud.supabase.co';
-
-// Strip any accidental /rest/v1 suffix that may have been set in Cloudflare env vars
-// (causes doubled path: /rest/v1/rest/v1/... which gives 404)
-const SUPABASE_URL = rawUrl.replace(/\/rest\/v1\/?$/, '');
-
-const SUPABASE_PUBLISHABLE_KEY =
-  import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY ||
-  'sb_publishable_Xhp2s62tWwhC6M49p6w_aw_2X2362iI';
+// Hardcoded credentials (Cloudflare env vars were causing issues with swapped/wrong values)
+const SUPABASE_URL = 'https://ezinpkzlpszzztkcozud.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_Xhp2s62tWwhC6M49p6w_aw_2X2362iI';
 
 // Import the supabase client like this:
 // import { supabase } from "@/integrations/supabase/client";
